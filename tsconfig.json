@@ -32,6 +32,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-  ],
+, "app/api/og/route.jsx"  ],
   "exclude": ["node_modules"]
 }

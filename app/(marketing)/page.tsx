@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
-export default () => (
+const MarketingPage = () => (
   <>
     <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
       <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
         <span className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium">
-          We're live
+          We&apos;re live
         </span>
         <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
           Discover the Latest Stories
@@ -111,3 +111,5 @@ export default () => (
     </section>
   </>
 )
+
+export default MarketingPage;

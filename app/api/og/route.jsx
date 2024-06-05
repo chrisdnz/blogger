@@ -1,4 +1,4 @@
-import { ImageResponse } from "@vercel/og"
+import { ImageResponse } from "next/og"
 
 import { ogImageSchema } from "@/lib/validations/og"
 
@@ -12,7 +12,7 @@ const interBold = fetch(
   new URL("../../../assets/fonts/CalSans-SemiBold.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer())
 
-export async function GET(req: Request) {
+export async function GET(req) {
   try {
     const fontRegular = await interRegular
     const fontBold = await interBold
