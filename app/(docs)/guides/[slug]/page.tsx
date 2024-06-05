@@ -21,12 +21,12 @@ interface GuidePageProps {
   }
 }
 
-async function getGuideFromParams(params) {
+async function getGuideFromParams(params: GuidePageProps["params"]) {
   const slug = params?.slug?.join("/")
   const guide = allGuides.find((guide) => guide.slugAsParams === slug)
 
   if (!guide) {
-    null
+    return null
   }
 
   return guide
@@ -75,10 +75,12 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  GuidePageProps["params"][]
+  { params: { slug: string[] } }[]
 > {
   return allGuides.map((guide) => ({
-    slug: guide.slugAsParams.split("/"),
+    params: {
+      slug: guide.slugAsParams.split("/"),
+    },
   }))
 }
 

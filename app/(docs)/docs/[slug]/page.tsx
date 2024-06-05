@@ -19,12 +19,12 @@ interface DocPageProps {
   }
 }
 
-async function getDocFromParams(params) {
+async function getDocFromParams(params: DocPageProps["params"]) {
   const slug = params.slug?.join("/") || ""
   const doc = allDocs.find((doc) => doc.slugAsParams === slug)
 
   if (!doc) {
-    null
+    return null
   }
 
   return doc
@@ -73,10 +73,12 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  DocPageProps["params"][]
+  { params: { slug: string[] } }[]
 > {
-  return allDocs.map((doc) => ({
-    slug: doc.slugAsParams.split("/"),
+  return allDocs.map((guide) => ({
+    params: {
+      slug: guide.slugAsParams.split("/"),
+    },
   }))
 }
 
